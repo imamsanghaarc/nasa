@@ -13,11 +13,13 @@ from core.scene import Scene
 from art import environments
 from ui.dialogue_box import DialogueBox
 
+_MISSION_ORDER = ("outpost", "landing", "surface", "tunnel")
+
 _MISSION_TO_LEVEL = {
-    "outpost": "level2",
-    "landing": "level3",
-    "surface": "level4",
-    "tunnel": "ending",
+    "outpost": "level1",
+    "landing": "level2",
+    "surface": "level3",
+    "tunnel": "level4",
 }
 
 class BriefingScene(Scene):
@@ -40,10 +42,21 @@ class BriefingScene(Scene):
     def on_enter(self, **data) -> None:
         self.t = 0.0
         self.continue_key = False
-        # level_id may come from switch(level_id="outpost") or default
-        level_id = data.get("level_id", self.level_id)
-        actual_level_id = _MISSION_TO_LEVEL.get(level_id, level_id)
-        # load the level config to get name and blurb
+        # ``level_id`` is the mission that was just COMPLETED.
+        completed = str(data.get("level_id", self.level_id))
+        self.level_id = completed
+
+        # Decide which mission comes next in the campaign chain.
+        if completed in _MISSION_ORDER:
+            idx = _MISSION_ORDER.index(completed)
+            self.next_mission = _MISSION_ORDER[idx + 1] if idx + 1 < len(_MISSION_ORDER) else None
+        else:
+            self.next_mission = None
+
+        # Show the NEXT mission's briefing. If the campaign is finished, show the
+        # last mission card before heading to the ending.
+        shown_mission = self.next_mission or completed
+        actual_level_id = _MISSION_TO_LEVEL.get(shown_mission, "level1")
         self.cfg = levels.load_level(actual_level_id)
         self.dialogue = levels.load_dialogue(self.cfg.get("dialogue", "dialogue/mars.json"))
         self.hud = None  # not needed for briefing
@@ -56,7 +69,6 @@ class BriefingScene(Scene):
             self._start_done()
 
         # Set the manager reference so update() can switch scenes.
-        # The test's game object is stored as self.game.
         if self.game and hasattr(self.game, "manager"):
             self.manager = self.game.manager
         elif self.stack and self.stack[-1] and hasattr(self.stack[-1], "manager") and self.stack[-1].manager:
@@ -77,26 +89,14 @@ class BriefingScene(Scene):
         self.t += dt
         if self.continue_key:
             audio.play("click")
-            # Determine the next level based on sequential unlock.
-            # Use the mission-to-level mapping so we switch to level file names
-            # (e.g. 'outpost' -> 'level1') rather than mission IDs ('landing').
-            next_level = _MISSION_TO_LEVEL.get(self.level_id, self.level_id)
-            if next_level != self.level_id and next_level in settings.PLAYABLE_SCENES:
-                self.manager.switch(next_level)
+            if self.next_mission:
+                target = _MISSION_TO_LEVEL.get(self.next_mission, settings.LEVEL1)
+                self.manager.switch(target)
             else:
-                # Fallback: advance to the next mission ID
-                order = list(settings.LEVEL_IDS)
-                if self.level_id in order:
-                    idx = order.index(self.level_id)
-                    next_idx = idx + 1
-                    if next_idx < len(order):
-                        self.manager.switch(settings.LEVEL_IDS[next_idx])
-                    else:
-                        if hasattr(self.state, "finish_mission") and self.state.outcome is None:
-                            self.state.finish_mission("win")
-                        self.manager.switch(settings.ENDING)
-                else:
-                    self.manager.switch(settings.LEVEL1)
+                # Campaign finished - return home and see the ending.
+                if hasattr(self.state, "finish_mission") and self.state.outcome is None:
+                    self.state.finish_mission("win")
+                self.manager.switch(settings.ENDING)
 
     def draw(self, surface: pygame.Surface) -> None:
         surface.blit(environments.outpost_room(settings.WIDTH, settings.HEIGHT), (0, 0))

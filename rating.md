@@ -1,6 +1,6 @@
-# rating.md — LAIKA: MARS MISSION Judge's Rating
+# rating.md — MISSION LAIKA: THE RED HORIZON Judge's Rating
 
-## Project: LAIKA: MARS MISSION
+## Project: MISSION LAIKA: THE RED HORIZON
 NASA Space Apps Challenge 2026
 Team: [Team Name]
 
@@ -40,7 +40,7 @@ The presentation is thorough and well-organized. All documentation files are ver
 
 ## Judge's Overall Commentary
 
-**LAIKA: MARS MISSION** is a deserving perfect score. The team has addressed every criterion with excellence:
+**MISSION LAIKA: THE RED HORIZON** is a deserving perfect score. The team has addressed every criterion with excellence:
 
 - **Impact**: The project educates and inspires while honoring space exploration history. Players learn real science through meaningful decisions that affect Laika's survival.
 - **Creativity**: The procedural approach, unique protagonist (Laika), and integrated NASA data systems demonstrate original thinking that challenges conventional game design methods.

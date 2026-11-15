@@ -56,7 +56,7 @@
       "objective": "Take your meal to the table and eat.",
       "dialogue_trigger": "food_eat",
       "table_pos": [400, 320],
-      "time_limit": 60
+      "time_limit": 90
     },
     {
       "id": "clean_crumbs",
@@ -65,7 +65,7 @@
       "crumbs_total": 14,
       "crumbs_cleaned": 0,
       "vacuum_rect": [860, 260, 60, 40],
-      "time_limit": 120
+      "time_limit": 150
     },
     {
       "id": "exercise_intro",
@@ -92,7 +92,7 @@
           {"id": "wrench", "name": "Wrench", "color": "#5EE6D0", "desc": "Useless item.", "tag": "TRAP"}
         ]
       },
-      "time_limit": 60
+      "time_limit": 90
     },
     {
       "id": "bike_ready",
@@ -102,13 +102,13 @@
         {"label": "Strap in and ride", "value": "strap"},
         {"label": "Run freely", "value": "free"}
       ],
-      "time_limit": 10
+      "time_limit": 15
     },
     {
       "id": "bike",
       "objective": "Pedal the stationary bike for 22 seconds. Keep the rhythm.",
       "dialogue_trigger": "bike",
-      "time_limit": 22,
+      "time_limit": 30,
       "qte_keys": ["left", "right"],
       "rhythm": "alternating left/right adds progress; same key twice reduces gain."
     },
@@ -121,13 +121,13 @@
         {"label": "Exercise area", "value": "exercise", "bad": true, "reason": "CO₂ accumulation risk."},
         {"label": "Resting stations", "value": "resting", "bad": false}
       ],
-      "time_limit": 8
+      "time_limit": 10
     },
     {
       "id": "rest_done",
       "objective": "Laika sleeps near the ventilation grille. The CO₂ is extracted.",
       "dialogue_trigger": "rest_done",
-      "time_limit": 5
+      "time_limit": 8
     },
     {
       "id": "complete",

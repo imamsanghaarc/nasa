@@ -1,0 +1,4 @@
+Final Level: Lava Tunnel Exploration
+In this final level, Laika enters a lava tunnel, which provides shelter and protects her batteries from the harsh environmental conditions and high radiation on Mars.
+Inside the tunnel, the player must find and interact with two buttons: one representing a rock sample and another representing a camera. Once both objectives are completed, Laika can leave the tunnel and head toward the final destination point.
+Reaching the final goal will complete the mission and allow Laika to return home to Earth.

@@ -87,7 +87,12 @@ def level_number(level_id: str) -> int:
 
 # --- level configs ----------------------------------------------------------
 def load_level(level_id: str) -> dict:
-    path = settings.DATA / "levels" / f"{level_id}.json"
+    # Use LEVEL_SCENES mapping to convert mission IDs to level file names.
+    # LEVEL_SCENES maps mission IDs (outpost, landing, surface, tunnel) to
+    # level scene constants (LEVEL1, LEVEL2, LEVEL3, LEVEL4) which correspond
+    # to level1.json, level2.json, etc.
+    level_file = settings.LEVEL_SCENES.get(level_id, level_id)
+    path = settings.DATA / "levels" / f"{level_file}.json"
     config = _read_json(path)
     missing = [key for key in LEVEL_KEYS if key not in config]
     if missing:

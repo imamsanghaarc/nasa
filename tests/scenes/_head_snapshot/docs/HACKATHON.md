@@ -1,8 +1,8 @@
-# LAIKA: MARS MISSION - Hackathon Document
+# MISSION LAIKA: THE RED HORIZON - Hackathon Document
 
 ## NASA Space Apps Challenge 2026
 
-### Project: LAIKA: MARS MISSION
+### Project: MISSION LAIKA: THE RED HORIZON
 
 **Team**: [Team to be filled]  
 **Challenge Category**: Game/Interactive Application  
@@ -12,7 +12,7 @@
 
 ### Project Summary
 
-LAIKA: MARS MISSION is a junior astronaut mission trainer where the player guides Laika, a robotic dog, through four survival challenges on the way to Mars. Every mechanic is grounded in real NASA data, and the game teaches players about solar radiation, communication delays, sandstorm survival, and extreme cold operations.
+MISSION LAIKA: THE RED HORIZON is a junior astronaut mission trainer where the player guides Laika, a robotic dog, through four survival challenges on the way to Mars. Every mechanic is grounded in real NASA data, and the game teaches players about solar radiation, communication delays, sandstorm survival, and extreme cold operations.
 
 ### Key Features (per NASA Space Apps Briefing)
 

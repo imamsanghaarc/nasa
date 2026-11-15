@@ -18,7 +18,6 @@ from scenes.boot import BootScene
 from scenes.menu import MenuScene
 from scenes.map import MapScene
 from scenes.tutorial import TutorialScene
-from scenes.world_level import make_world_scene
 from scenes.ending import EndingScene
 from scenes.briefing import BriefingScene, register_mission_scenes
 from scenes.level1 import Level1Scene
@@ -26,10 +25,6 @@ from scenes.level2 import Level2Scene
 from scenes.level3 import Level3Scene
 from scenes.level4 import Level4Scene
 from ui.pause import PauseScene
-
-# every mission planet runs the shared world engine; each is its own scene name
-WORLD_PLANETS = settings.PLANET_SCENES
-
 
 def _enable_dpi_awareness() -> None:
     """Opt out of Windows display scaling so text renders 1:1 and stays crisp."""
@@ -63,11 +58,11 @@ async def main() -> int:
     game.manager.register(settings.MENU, MenuScene)
     game.manager.register(settings.MAP, MapScene)
     game.manager.register(settings.TUTORIAL, TutorialScene)
-    for planet_id in WORLD_PLANETS:
-        game.manager.register(planet_id, make_world_scene(planet_id))
     game.manager.register(settings.ENDING, EndingScene)
     game.manager.register(settings.PAUSE, PauseScene)
     register_mission_scenes(game.manager)
+    # Explicit registrations (idempotent): level1-4 + briefing are also set up
+    # by register_mission_scenes above.
     game.manager.register(settings.LEVEL2, Level2Scene)
     game.manager.register(settings.LEVEL3, Level3Scene)
     game.manager.register(settings.LEVEL4, Level4Scene)

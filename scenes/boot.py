@@ -71,11 +71,15 @@ class BootScene(Scene):
         fade = min(1.0, self.t / 0.9)
         alpha = int(255 * fade)
 
+        # Fit the longer title inside the window at any text scale.
+        title_size = 62
+        while title_size > 18 and text.measure(settings.TITLE, title_size, True)[0] > settings.WIDTH - 80:
+            title_size -= 2
         text.draw_centered(
             screen,
             settings.TITLE,
             (settings.WIDTH // 2, 214),
-            62,
+            title_size,
             settings.INK,
             display=True,
             alpha=alpha,

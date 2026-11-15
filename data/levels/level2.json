@@ -66,12 +66,18 @@
       "objective": "Wrong equipment selected. Please choose only the essential items.",
       "dialogue_trigger": "landing_wrong",
       "time_limit": 3.0
-    },
-    {
-      "id": "comm_test",
+    },{"id": "comm_test",
       "objective": "Send an instruction to Laika but do NOT press the send button again. Wait for the response.",
       "dialogue_trigger": "comm_test",
-      "time_limit": 30
+      "time_limit": 30,
+      "comm_options": {
+        "options": [
+          {"label": "Send the same instruction repeatedly", "value": "repeat", "correct": false},
+          {"label": "Wait the necessary amount of time to receive a response", "value": "wait", "correct": true},
+          {"label": "Restart Laika's systems", "value": "restart", "correct": false}
+        ],
+        "trap": "The signal between Mars and Earth has a delay of several minutes. Sending repeatedly or restarting will not produce a faster response."
+      }
     },
     {
       "id": "comm_success",

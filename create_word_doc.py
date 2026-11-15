@@ -13,7 +13,7 @@ font.name = 'Consolas'
 font.size = Pt(10)
 
 # Title
-title = doc.add_heading('LAIKA: MARS MISSION — Project Journey Document', level=0)
+title = doc.add_heading('MISSION LAIKA: THE RED HORIZON — Project Journey Document', level=0)
 title.alignment = WD_ALIGN_PARAGRAPH.CENTER
 
 doc.add_paragraph()
@@ -24,7 +24,7 @@ doc.add_heading('1. Project Overview', level=1)
 p = doc.add_paragraph()
 run = p.add_run('Project: ')
 run.bold = True
-p.add_run('LAIKA: MARS MISSION')
+p.add_run('MISSION LAIKA: THE RED HORIZON')
 
 p = doc.add_paragraph()
 run = p.add_run('NASA Space Apps Challenge 2026 ')
@@ -286,7 +286,7 @@ doc.add_paragraph()
 
 # ==================== SECTION 8: CONTACT ====================
 doc.add_heading('8. Contact', level=1)
-p = doc.add_paragraph('Project: LAIKA: MARS MISSION')
+p = doc.add_paragraph('Project: MISSION LAIKA: THE RED HORIZON')
 p = doc.add_paragraph('NASA Space Apps Challenge 2026')
 p = doc.add_paragraph('Built with Python + pygame-ce — 100% procedural, no image/audio files required')
 

@@ -306,6 +306,20 @@ class Level3Scene(Scene):
     def _handle_sandstorm(self, dt: float) -> None:
         self.t += dt
         self.sandstorm_active = True
+        # Present choice: wait for storm or continue moving
+        if not self.modal:
+            self.modal = Modal(
+                "SANDSTORM DECISION",
+                "A sandstorm is rolling in. What do you do?",
+                buttons=[
+                    ("Wait for storm to pass", 
+                     lambda: self._sandstorm_choice("wait"), "primary"),
+                    ("Continue moving through storm",
+                     lambda: self._sandstorm_choice("continue"), "ghost"),
+                ],
+                width=600,
+            )
+            self.modal.draw(self.screen)
         self._move_player(dt)
 
         # baseline freshness: the storm is judged from where the player is now
@@ -361,6 +375,40 @@ class Level3Scene(Scene):
         if remaining <= 0:
             self._goto_phase("complete")
 
+
+    def _sandstorm_choice(self, choice: str) -> None:
+
+        self.modal = None
+
+        if choice == "wait":
+
+            # Player waited for the storm to pass
+
+            self.hud.toast("Sandstorm passed. Clearing exposure.")
+
+            self.sandstorm_active = False
+
+            self.dust_exposure = 0.0
+
+            self._goto_phase("cold_alert")
+
+        elif choice == "continue":
+
+            # Player continued moving through the storm
+
+            # Increased dust exposure risk
+
+            self.hud.toast("Moving through storm - dust exposure increasing!")
+
+            self.sandstorm_active = True
+
+            # Add extra exposure for continuing
+
+            extra_exposure = 3.0 * (self.state.elapsed - self.phase_start)
+
+            self.dust_exposure = min(self.dust_exposure + extra_exposure, 10.0)
+
+            # Stay in sandstorm phase but with higher risk
     def _handle_complete(self, dt: float) -> None:
         self.t += dt
         if self._finished:

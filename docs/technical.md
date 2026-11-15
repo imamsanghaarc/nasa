@@ -1,4 +1,4 @@
-# LAIKA: MARS MISSION - Technical Document
+# MISSION LAIKA: THE RED HORIZON - Technical Document
 
 ## Architecture Essentials
 

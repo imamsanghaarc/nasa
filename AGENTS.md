@@ -1,6 +1,6 @@
-# AGENTS.md — LAIKA: MARS MISSION
+# AGENTS.md — MISSION LAIKA: THE RED HORIZON
 
-Compact instructions for the Codebuff AI agent working on the LAIKA: MARS MISSION NASA Space Apps 2026 game.
+Compact instructions for the Codebuff AI agent working on the MISSION LAIKA: THE RED HORIZON NASA Space Apps 2026 game.
 
 ## ⚠️ Critical Fixes (learned the hard way)
 
@@ -95,4 +95,4 @@ Plus: `LAIKA_MARS_MISSION_Project_Journey.docx` (word journey document)
 - Agent: Buffy (Codebuff)
 - Model: Nemotron 3.5 Lightning
 - Freebuff: https://freebuff.com
-- Project: LAIKA: MARS MISSION (NASA Space Apps 2026)
+- Project: MISSION LAIKA: THE RED HORIZON (NASA Space Apps 2026)

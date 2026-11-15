@@ -231,26 +231,7 @@ class Level2Scene(Scene):
         if self.state.elapsed - self.phase_start >= 8.0:
             self._goto_phase("comm_test")
 
-    # -- comm_test --
-    def _handle_comm_test(self, dt: float) -> None:
-        self.t += dt
-        # PPTX: a "Send Message" button sits beside a 30-second countdown; the
-        # player must NOT press it. Waiting is the correct decision.
-        remaining = max(0.0, 30.0 - (self.state.elapsed - self.phase_start))
-        minutes = int(remaining // 60)
-        seconds = int(remaining % 60)
-        self.hud.toast(f"SEND MESSAGE  {minutes:01d}:{seconds:02d}  -  DO NOT PRESS. Waiting for Laika...")
-        # if player presses space, penalize
-        keys = pygame.key.get_pressed()
-        if keys[pygame.K_SPACE] and not self.dlg.is_active():
-            self.hud.toast("Mission control warns: do not send another message!")
-            audio.play("deny")
-        if remaining <= 0:
-            # waited long enough - Laika's safe-landing confirmation arrives
-            self._goto_phase("complete")
-
-    # -- complete --
-    def _handle_complete(self, dt: float) -> None:
+    # -- comm_test --    def _handle_comm_test(self, dt: float) -> None:        self.t += dt        # PPTX: present three options for communication response.        # Correct: wait for Laika's response (accounting for Mars-Earth delay).        # Trap: sending repeatedly or restarting systems won't produce a faster response.        remaining = max(0.0, 30.0 - (self.state.elapsed - self.phase_start))        minutes = int(remaining // 60)        seconds = int(remaining % 60)        if not self.dlg.is_active() and not self.modal:            self.modal = Modal(                "COMMUNICATION TEST",                "Laika sent an instruction. Three options appear:",                buttons=[                    ("A) Send the same instruction repeatedly",                     lambda: self._comm_option("repeat", remaining), "ghost"),                    ("B) Wait the necessary amount of time to receive a response",                     lambda: self._comm_option("wait", remaining), "primary"),                    ("C) Restart Laika's systems",                     lambda: self._comm_option("restart", remaining), "ghost"),                width=600,            )            self.modal.draw(self.screen)        if self.modal and self.modal.is_active():            self.modal.update(dt)            self.modal.draw(self.screen)        else:            self.modal = None        # countdown HUD        self.hud.toast(f"COMM TEST  {minutes:02d}:{seconds:02d}  -  Option B is correct (Mars-Earth delay)")        # if player presses space, penalize        keys = pygame.key.get_pressed()        if keys[pygame.K_SPACE] and not self.dlg.is_active():            self.hud.toast("Mission control warns: do not send another message!")            audio.play("deny")        if remaining <= 0 and not self.modal:            # waited long enough - Laika's safe-landing confirmation arrives            self._goto_phase("complete")    def _comm_option(self, option: str, remaining: float) -> None:        self.modal = None        if option == "wait":            # Correct: waiting accounts for the Mars-Earth delay            self.hud.toast("Mission control: signal received. Laika confirms safe landing.")            audio.play("confirm")            self._goto_phase("complete")        else:            # Wrong: sending repeatedly or restarting doesn't help            self.hud.toast("Mission control warns: the delay cannot be overcome by repeating or restarting!")            audio.play("deny")    def _handle_complete(self, dt: float) -> None:
         self.t += dt
         if self.state.elapsed - self.phase_start >= 5.0:
             self.state.mark_level_done("landing", self.level_time)

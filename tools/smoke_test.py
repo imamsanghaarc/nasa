@@ -1,5 +1,8 @@
 """Headless smoke test: boots every scene and runs frames without a display.
 
+Covers the current 4-level Mars campaign (Outpost -> Landing -> Surface ->
+Tunnel), the tutorial, menu, map, briefing, pause and ending scene.
+
 Run from the project root::
 
     python tools/smoke_test.py
@@ -22,18 +25,20 @@ import pygame  # noqa: E402
 from core import audio, settings  # noqa: E402
 from core.game_state import GameState  # noqa: E402
 from core.scene import Game  # noqa: E402
+from scenes.briefing import BriefingScene  # noqa: E402
 from scenes.ending import EndingScene  # noqa: E402
+from scenes.level1 import Level1Scene  # noqa: E402
+from scenes.level2 import Level2Scene  # noqa: E402
+from scenes.level3 import Level3Scene  # noqa: E402
+from scenes.level4 import Level4Scene  # noqa: E402
 from scenes.map import MapScene  # noqa: E402
 from scenes.menu import MenuScene  # noqa: E402
 from scenes.tutorial import TutorialScene  # noqa: E402
-from scenes.world_level import make_world_scene  # noqa: E402
 from ui.pause import PauseScene  # noqa: E402
 
-WORLD_PLANETS = ("mercury", "venus", "mars", "jupiter", "saturn", "uranus", "neptune")
 
-
-def run_scene(game: Game, name: str, frames: int = 30) -> None:
-    game.manager.switch(name)
+def run_scene(game: Game, name: str, frames: int = 30, **enter) -> None:
+    game.manager.switch(name, **enter)
     clock = pygame.time.Clock()
     for _ in range(frames):
         game.manager.handle_events([])
@@ -53,23 +58,37 @@ def main() -> int:
     game = Game(virtual, window, state)
 
     registry = {
+        settings.LEVEL1: Level1Scene,
+        settings.LEVEL2: Level2Scene,
+        settings.LEVEL3: Level3Scene,
+        settings.LEVEL4: Level4Scene,
+        settings.BRIEFING: BriefingScene,
         settings.TUTORIAL: TutorialScene,
         settings.ENDING: EndingScene,
         settings.MENU: MenuScene,
         settings.MAP: MapScene,
         settings.PAUSE: PauseScene,
     }
-    for planet_id in WORLD_PLANETS:
-        registry[planet_id] = make_world_scene(planet_id)
     for name, cls in registry.items():
         game.manager.register(name, cls)
 
-    failures = []
-    scene_names = (settings.TUTORIAL, *WORLD_PLANETS, settings.MENU, settings.MAP, settings.PAUSE)
+    failures: list[str] = []
+    # (scene name, extra switch kwargs)
+    scene_cases = [
+        (settings.TUTORIAL, {}),
+        (settings.LEVEL1, {}),
+        (settings.LEVEL2, {}),
+        (settings.LEVEL3, {}),
+        (settings.LEVEL4, {}),
+        (settings.BRIEFING, {"level_id": "outpost"}),
+        (settings.MENU, {}),
+        (settings.MAP, {}),
+        (settings.PAUSE, {}),
+    ]
 
-    for name in scene_names:
+    for name, enter in scene_cases:
         try:
-            run_scene(game, name)
+            run_scene(game, name, **enter)
             print(f"ok    {name}")
         except Exception as exc:  # noqa: BLE001
             import traceback

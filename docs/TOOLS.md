@@ -1,4 +1,4 @@
-# LAIKA: MARS MISSION - Tools Document
+# MISSION LAIKA: THE RED HORIZON - Tools Document
 
 ## Available Tools
 

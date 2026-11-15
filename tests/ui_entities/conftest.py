@@ -1,4 +1,4 @@
-"""Headless harness for the UI / ENTITIES layer of LAIKA: MARS MISSION.
+"""Headless harness for the UI / ENTITIES layer of MISSION LAIKA: THE RED HORIZON.
 
 Rules honoured here:
   * SDL dummy video + audio drivers are set BEFORE pygame is imported.

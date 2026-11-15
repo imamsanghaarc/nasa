@@ -1,4 +1,4 @@
-You are working on LAIKA: MARS MISSION, a Python + pygame-ce educational game
+You are working on MISSION LAIKA: THE RED HORIZON, a Python + pygame-ce educational game
 for the NASA Space Apps Challenge 2026 (audience: judges and players aged 10+).
 The game has 4 levels, 14 scenes, fully procedural art, and data under data/.
 Docs: README.md, DOCS.md, design.md, technical.md, playguide.md, SCIENCE.md,

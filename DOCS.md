@@ -1,6 +1,6 @@
-# LAIKA: MARS MISSION - Documentation Index
+# MISSION LAIKA: THE RED HORIZON - Documentation Index
 
-This directory contains the complete documentation suite for LAIKA: MARS MISSION, a junior astronaut mission built for the NASA Space Apps Challenge 2026.
+This directory contains the complete documentation suite for MISSION LAIKA: THE RED HORIZON, a junior astronaut mission built for the NASA Space Apps Challenge 2026.
 
 ## Documents
 

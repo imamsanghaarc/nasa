@@ -12,7 +12,7 @@
       "name": "Mars",
       "part": "Navigation Module",
       "part_color": "#8fd3ff",
-      "playable": "mars",
+      "playable": "level1",
       "map_position": [
         0.413,
         0.337

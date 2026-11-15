@@ -1,4 +1,4 @@
-# LAIKA: MARS MISSION - Data Document
+# MISSION LAIKA: THE RED HORIZON - Data Document
 
 ## Data Format Reference
 
@@ -139,7 +139,7 @@ and sends `wave` enemies every `burst_every` seconds until `duration` runs out.
 
 ```json
 {
-  "title": "LAIKA: MARS MISSION",
+  "title": "MISSION LAIKA: THE RED HORIZON",
   "subtitle": "A Junior Astronaut Mission Trainer",
   "levels": [
     {

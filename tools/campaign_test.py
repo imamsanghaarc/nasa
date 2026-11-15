@@ -660,7 +660,7 @@ def main() -> int:
     audio.init()
 
     print("=" * 68)
-    print("LAIKA: MARS MISSION - campaign test")
+    print("MISSION LAIKA: THE RED HORIZON - campaign test")
     print("=" * 68)
 
     test_data_integrity()

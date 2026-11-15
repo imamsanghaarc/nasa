@@ -1,4 +1,4 @@
-# LAIKA: MARS MISSION - Player Guide
+# MISSION LAIKA: THE RED HORIZON - Player Guide
 
 ## Installation
 

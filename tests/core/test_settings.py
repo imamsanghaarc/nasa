@@ -18,7 +18,7 @@ class TestWindow:
         assert settings.FPS == 60
 
     def test_strings(self):
-        assert settings.TITLE == "LAIKA: MARS MISSION"
+        assert settings.TITLE == "MISSION LAIKA: THE RED HORIZON"
         assert settings.SUBTITLE
         assert settings.CAPTION == f"{settings.TITLE} - {settings.SUBTITLE}"
         assert "NASA" in settings.HACKATHON

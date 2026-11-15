@@ -308,7 +308,7 @@ class Level4Scene(Scene):
                 self.state.finish_mission("win")
                 self.manager.switch(settings.ENDING)
             else:
-                self.manager.switch(settings.BRIEFING)
+                self.manager.switch(settings.BRIEFING, level_id="tunnel")
 
     # ------------------------------------------------------------------
     # General loop

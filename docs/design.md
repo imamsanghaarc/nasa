@@ -1,4 +1,4 @@
-# LAIKA: MARS MISSION - Design Document
+# MISSION LAIKA: THE RED HORIZON - Design Document
 
 ## Premise
 Today you are going to help with a really important mission, gathering information about Mars. Your base will be the martian output where you and Laika, a robotic dog, will gather information about invisible solar radiation, solar storms, environmental hazards, and possible signs of life, and take important decisions to secure your safety and from the mission.

@@ -179,7 +179,11 @@ class MenuScene(Scene):
             seed=7,
         )
 
-        text.draw(screen, settings.TITLE, (118, 104), 56, settings.INK, display=True)
+        # Fit the longer title inside the window at any text scale.
+        title_size = 56
+        while title_size > 18 and text.measure(settings.TITLE, title_size, True)[0] > settings.WIDTH - 160:
+            title_size -= 2
+        text.draw(screen, settings.TITLE, (118, 104), title_size, settings.INK, display=True)
         text.draw(screen, settings.SUBTITLE, (120, 178), 30, settings.ACCENT)
 
         sprites.draw_laika(screen, (988, 300), self.t, scale=1.5)

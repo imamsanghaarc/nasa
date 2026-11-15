@@ -1,4 +1,4 @@
-# LAIKA: MARS MISSION - Science Document
+# MISSION LAIKA: THE RED HORIZON - Science Document
 
 ## NASA Science Systems
 

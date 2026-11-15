@@ -1,4 +1,4 @@
-# LAIKA: MARS MISSION
+# MISSION LAIKA: THE RED HORIZON
 ## A Junior Astronaut Mission Trainer for NASA Space Apps Challenge 2026
 
 [![NASA Space Apps](https://img.shields.io/badge/NASA%20Space%20Apps%20Challenge-2026-blue)](https://spaceapps.challenge.gov/)
@@ -9,9 +9,9 @@
 
 ## 🚀 Overview
 
-**LAIKA: MARS MISSION** is a junior astronaut mission trainer built for the **NASA Space Apps Challenge 2026**. Players guide Laika, a robotic dog, through four survival challenges on the way to Mars. Every mechanic is grounded in real NASA data, teaching players about solar radiation, communication delays, sandstorm survival, and extreme cold operations.
+**MISSION LAIKA: THE RED HORIZON** is a junior astronaut mission trainer built for the **NASA Space Apps Challenge 2026**. Players guide Laika, a robotic dog, through four survival challenges on the way to Mars. Every mechanic is grounded in real NASA data, teaching players about solar radiation, communication delays, sandstorm survival, and extreme cold operations.
 
-**Game Title:** LAIKA: MARS MISSION  
+**Game Title:** MISSION LAIKA: THE RED HORIZON  
 **Platform:** Windows, macOS, Linux, Web (pygbag)  
 **Python:** 3.12+ (3.11 also works)  
 **Dependencies:** `pygame-ce` (never plain `pygame`)  

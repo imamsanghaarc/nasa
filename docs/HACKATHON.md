@@ -1,8 +1,8 @@
-# LAIKA: MARS MISSION - Hackathon Document
+# MISSION LAIKA: THE RED HORIZON - Hackathon Document
 
 ## NASA Space Apps Challenge 2026
 
-### Project: LAIKA: MARS MISSION
+### Project: MISSION LAIKA: THE RED HORIZON
 
 **Team**: [Team to be filled]  
 **Challenge Category**: Game/Interactive Application  
@@ -12,7 +12,7 @@
 
 ### Project Summary & Emotional Hook
 
-LAIKA: MARS MISSION is a junior astronaut mission trainer where the player guides Laika, a robotic dog, through four survival challenges on the way to Mars. Laika — history's first animal astronaut — embodies the courage of early space explorers. Players step into the role of a junior astronaut trainer, making critical decisions that determine Laika's survival. Every mechanic is grounded in real NASA data, and the game teaches players about solar radiation, communication delays, sandstorm survival, and extreme cold operations. The emotional hook: honoring Laika's legacy while inspiring the next generation to pursue STEM and planetary exploration.
+MISSION LAIKA: THE RED HORIZON is a junior astronaut mission trainer where the player guides Laika, a robotic dog, through four survival challenges on the way to Mars. Laika — history's first animal astronaut — embodies the courage of early space explorers. Players step into the role of a junior astronaut trainer, making critical decisions that determine Laika's survival. Every mechanic is grounded in real NASA data, and the game teaches players about solar radiation, communication delays, sandstorm survival, and extreme cold operations. The emotional hook: honoring Laika's legacy while inspiring the next generation to pursue STEM and planetary exploration.
 
 ### Key Features (per NASA Space Apps Briefing)
 
@@ -59,7 +59,7 @@ The game integrates three core NASA data systems into every gameplay mechanic:
 
 ### Impact Statement
 
-LAIKA: MARS MISSION brings NASA-calibrated space science to a broad junior-audience through an accessible, 20-30 minute game. By integrating real radiation data (DONKI), biomedical findings (OSDR), and planetary imagery (MARS TREK), the game transforms abstract science into tactile decisions: managing radiation exposure, choosing exercise to counteract muscle loss, selecting safe rest zones to avoid CO2 buildup, and respecting EDL communication delays. The project addresses the NASA Space Apps Challenge goal of making NASA data explorable and engaging, particularly for younger audiences who may not encounter these systems otherwise. All science values are verified: 0.64 mSv/day (NASA PDS), 1-1.5%/month (NASA HRP), -125°C extreme polar (MARS TREK/Gale Crater), 3.71 m/s² Mars gravity.
+MISSION LAIKA: THE RED HORIZON brings NASA-calibrated space science to a broad junior-audience through an accessible, 20-30 minute game. By integrating real radiation data (DONKI), biomedical findings (OSDR), and planetary imagery (MARS TREK), the game transforms abstract science into tactile decisions: managing radiation exposure, choosing exercise to counteract muscle loss, selecting safe rest zones to avoid CO2 buildup, and respecting EDL communication delays. The project addresses the NASA Space Apps Challenge goal of making NASA data explorable and engaging, particularly for younger audiences who may not encounter these systems otherwise. All science values are verified: 0.64 mSv/day (NASA PDS), 1-1.5%/month (NASA HRP), -125°C extreme polar (MARS TREK/Gale Crater), 3.71 m/s² Mars gravity.
 
 ### Future Work
 

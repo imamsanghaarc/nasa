@@ -1,6 +1,6 @@
-# LAIKA: MARS MISSION - Contributing Guide
+# MISSION LAIKA: THE RED HORIZON - Contributing Guide
 
-## Contributing to LAIKA: MARS MISSION
+## Contributing to MISSION LAIKA: THE RED HORIZON
 
 ### Getting Started
 

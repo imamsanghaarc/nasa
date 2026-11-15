@@ -1,4 +1,4 @@
-# AGENTS.md — LAIKA: MARS MISSION
+# AGENTS.md — MISSION LAIKA: THE RED HORIZON
 
 Compact instructions for the HOMEBOUND repository (NASA Space Apps 2026 game).
 
