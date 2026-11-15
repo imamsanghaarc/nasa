@@ -17,13 +17,7 @@ LEVEL_KEYS = ("id", "name", "dialogue", "params", "objective")
 
 #: The playable mission planets, in campaign order (the finale comes after them).
 PLANET_ORDER = (
-    "mercury",
-    "venus",
     "mars",
-    "jupiter",
-    "saturn",
-    "uranus",
-    "neptune",
 )
 
 

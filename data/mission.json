@@ -8,7 +8,7 @@
       "blurb": "Survival challenges test your decisions. Laika guides you.",
       "briefing": [
         "No open liquids: in microgravity, a spilled drink floats and can reach the panels, vents, and the outpost's most sensitive circuits. Choose sealed drinks you can drink through a straw or valve.",
-        "No crumbly food: crumbs float into the ventilation grilles and circuit boards. Choose food that is sealed, moist, and eaten in one bite \u2014 like irradiated chicken in a pouch."
+        "No crumbly food: crumbs float into the ventilation grilles and circuit boards. Choose food that is sealed, moist, and eaten in one bite -- like irradiated chicken in a pouch."
       ],
       "systems": [
         "RADLAB+DONKI",
@@ -42,7 +42,7 @@
       "blurb": "Take photographs and collect samples while surviving sandstorms and extreme cold.",
       "briefing": [
         "When a sandstorm begins, find shelter behind rocks, stop all scientific activities, and activate Low Power Mode. The dust is so dense that sunlight cannot reach the solar panels.",
-        "After the storm, the temperature will drop to -125 \u00b0C. Activate Hibernation Mode to protect the rover's batteries. If the rover is not close enough to a lava tunnel, it will be destroyed."
+        "After the storm, the temperature will drop to -125°C. Activate Hibernation Mode to protect the rover's batteries. If the rover is not close enough to a lava tunnel, it will be destroyed."
       ],
       "systems": [
         "RADLAB+DONKI",
@@ -72,4 +72,4 @@
       "scene": "world"
     }
   ]
-}
+}

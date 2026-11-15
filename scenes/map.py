@@ -22,7 +22,8 @@ def draw_ring(
     color: tuple[int, int, int],
     t: float,
 ) -> None:
-    pulse = 0.35 + 0.35 * abs(math.sin(t * 2.0))
+    # Smooth pulsing: use a constant radius for stable planet positions
+    pulse = 0.5
     pygame.draw.circle(screen, color, (cx, cy), int(radius * pulse), 2)
 
 
@@ -366,7 +367,8 @@ class MapScene(Scene):
             anchor_r = min(dist - planet["radius"] - 10, 40)
             ax = sun_pos[0] + math.cos(angle) * anchor_r
             ay = sun_pos[1] + math.sin(angle) * anchor_r
-            pulse = 0.35 + 0.35 * abs(math.sin(self.t * 2.0))
+            # Reduced pulse for stable hint lines
+            pulse = 0.25
             pygame.draw.line(screen, settings.ACCENT, sun_pos, (ax, ay), 1)
             pygame.draw.circle(screen, settings.ACCENT, (int(ax), int(ay)), int(2 + 2 * pulse))
 

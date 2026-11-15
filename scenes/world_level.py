@@ -699,7 +699,7 @@ class WorldLevelBase(Scene):
                 )
 
     def _draw_props(self, screen: pygame.Surface, camera: tuple[int, int]) -> None:
-        """Decorations: rocks, crystals, plants, ruins — themed per world."""
+        """Decorations: rocks, crystals, ruins — themed per world."""
         for prop in self.props:
             x = prop["x"] - camera[0]
             if x < -60 or x > settings.WIDTH + 60:
@@ -729,14 +729,6 @@ class WorldLevelBase(Scene):
                     [(x - 6 * s, y), (x + tilt, y - h), (x + tilt + 3 * s, y - h + 7 * s)],
                     1,
                 )
-            elif kind == "plant":
-                stem = self.theme.get("plant", self.theme["ground_top"])
-                for i in range(3):
-                    angle = -0.5 + i * 0.5 + prop["variant"] * 0.2
-                    length = (16 + i * 7) * s
-                    tip = (x + math.sin(angle) * length, y - math.cos(angle) * length)
-                    pygame.draw.line(screen, stem, (x, y), tip, 2)
-                    pygame.draw.circle(screen, stem, (int(tip[0]), int(tip[1])), int(2.5 * s))
             elif kind == "ruin":
                 h = (30 + prop["variant"] * 12) * s
                 w = 12 * s

@@ -202,10 +202,8 @@ def generate(level_id: str, params: dict, difficulty: str = "normal") -> dict:
                     "cycle": 4.2,
                     "offset": frac * 3.1,
                 }
-            )
-
-    # decorative props: rocks, crystals, plants, ruins — the world should feel lived in
-    prop_kinds = list(params.get("props", ["rock", "crystal", "plant"]))
+            )# decorative props: rocks, crystals, ruins — the world should feel lived in (no plants on Mars)
+    prop_kinds = list(params.get("props", ["rock", "crystal"]))
     if prop_kinds:
         for plat in ground_plats:
             if plat.width < 240 or plat.x < 500 or plat.x > length - 900:
@@ -229,7 +227,7 @@ def generate(level_id: str, params: dict, difficulty: str = "normal") -> dict:
             for plat in float_plats:
                 if plat.x < 500 or plat.x > length - 900 or rng.random() > 0.55:
                     continue
-                props.append(
+            props.append(
                     {
                         "kind": rng.choice(prop_kinds),
                         "x": int(plat.centerx + rng.randint(-plat.width // 3, plat.width // 3)),
@@ -238,6 +236,7 @@ def generate(level_id: str, params: dict, difficulty: str = "normal") -> dict:
                         "variant": rng.randint(0, 2),
                     }
                 )
+
 
     # collectibles: health canisters to find, bonus cells for the checklist
     health_count = int(params.get("health_pickups", 3))
